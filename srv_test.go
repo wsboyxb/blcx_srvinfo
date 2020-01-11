@@ -16,3 +16,22 @@ func TestGetServerInfo(t *testing.T) {
 		log.Printf("%d,%+v\n", i, info)
 	}
 }
+
+func TestGetRealSrvID(t *testing.T) {
+	dbUri, dbName := "mongodb://192.168.1.217:27017", "qgjs_loginnew"
+	id, err := GetRealSrvID(89, dbUri, dbName)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	log.Println(id)
+}
+
+func TestGetURI(t *testing.T) {
+	dbUri, dbName := "mongodb://192.168.1.217:27017", "qgjs_loginnew"
+	uri, err := GetURI(9000, dbUri, dbName)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	log.Println(uri)
+}
